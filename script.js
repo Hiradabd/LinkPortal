@@ -1,6 +1,7 @@
 const websites = [
     { name: "Chat GPT", url: "https://chat.openai.com", icon: "images/chatgpt-icon.png", tags: ["کاربردی"] },
     { name: "Google", url: "https://google.com", icon: "images/google-icon.png", tags: ["کاربردی"] },
+    { name: "Wikipedia", url: "https://wikipedia.org", icon: "images/wikipedia-icon.png", tags: ["کاربردی"]},
     { name: "Youtube", url: "https://youtube.com", icon: "images/youtube-icon.png", tags: ["تفریحی"] }
 ];
 
