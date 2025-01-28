@@ -1,7 +1,7 @@
 const websites = [
     { name: "Chat GPT", url: "https://chat.openai.com", icon: "images/chatgpt-icon.png", tags: ["کاربردی"] },
-    { name: "گوگل", url: "https://google.com", icon: "google-icon.png", tags: ["کاربردی"] },
-    { name: "یوتیوب", url: "https://youtube.com", icon: "youtube-icon.png", tags: ["تفریحی"] }
+    { name: "Google", url: "https://google.com", icon: "images/google-icon.png", tags: ["کاربردی"] },
+    { name: "Youtube", url: "https://youtube.com", icon: "images/youtube-icon.png", tags: ["تفریحی"] }
 ];
 
 document.getElementById('search-bar').addEventListener('input', function() {
@@ -10,9 +10,8 @@ document.getElementById('search-bar').addEventListener('input', function() {
     displayResults(results, 'search-results');
 });
 
-function showTag(tag) {
-    let results = websites.filter(site => site.tags.includes(tag));
-    displayResults(results, 'tag-results');
+function scrollToTag(tag) {
+    document.getElementById(tag).scrollIntoView({ behavior: "smooth" });
 }
 
 function displayResults(results, elementId) {
@@ -28,3 +27,19 @@ function displayResults(results, elementId) {
         resultsDiv.appendChild(siteDiv);
     });
 }
+
+// نمایش نتایج تگ‌ها
+websites.forEach(site => {
+    site.tags.forEach(tag => {
+        let tagResultsDiv = document.querySelector(`#${tag} .results`);
+        if (tagResultsDiv) {
+            let siteDiv = document.createElement('div');
+            siteDiv.className = 'site';
+            siteDiv.innerHTML = `<a href="${site.url}" target="_blank">
+                                    <img src="${site.icon}" alt="${site.name} Icon">
+                                    ${site.name}
+                                 </a>`;
+            tagResultsDiv.appendChild(siteDiv);
+        }
+    });
+});
