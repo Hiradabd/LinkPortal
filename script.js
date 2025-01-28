@@ -1,7 +1,7 @@
 const websites = [
-    { name: "چت جی پی تی", url: "https://chat.openai.com", tags: ["کاربردی"] },
-    { name: "گوگل", url: "https://google.com", tags: ["کاربردی"] },
-    { name: "یوتیوب", url: "https://youtube.com", tags: ["تفریحی"] }
+    { name: "Chat GPT", url: "https://chat.openai.com", icon: "images/chatgpt-icon.png", tags: ["کاربردی"] },
+    { name: "گوگل", url: "https://google.com", icon: "google-icon.png", tags: ["کاربردی"] },
+    { name: "یوتیوب", url: "https://youtube.com", icon: "youtube-icon.png", tags: ["تفریحی"] }
 ];
 
 document.getElementById('search-bar').addEventListener('input', function() {
@@ -21,7 +21,10 @@ function displayResults(results, elementId) {
     results.forEach(site => {
         let siteDiv = document.createElement('div');
         siteDiv.className = 'site';
-        siteDiv.innerHTML = `<a href="${site.url}" target="_blank">${site.name}</a>`;
+        siteDiv.innerHTML = `<a href="${site.url}" target="_blank">
+                                <img src="${site.icon}" alt="${site.name} Icon">
+                                ${site.name}
+                             </a>`;
         resultsDiv.appendChild(siteDiv);
     });
 }
